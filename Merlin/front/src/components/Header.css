@@ -1,0 +1,10 @@
+.nav-header {
+  display: flex;
+  background: rgb(87, 132, 112);
+  height: 77px;
+}
+
+.nav-title {
+  display: flex;
+  margin-left: 70px;
+}
