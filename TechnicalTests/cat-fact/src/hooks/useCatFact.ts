@@ -7,7 +7,7 @@ export const useCatFact = () => {
   const [catFact, setCatFact] = useState<string | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
-  const getFactCat = async () => {
+  const getCatFact = async () => {
     try {
       setError(null);
 
@@ -23,8 +23,8 @@ export const useCatFact = () => {
   }
 
   useEffect(() => {
-    getFactCat();
+    getCatFact();
   }, [])
 
-  return { catFact, getFactCat, error }
+  return { catFact, getCatFact, error }
 }

@@ -37,10 +37,10 @@ export const useCatImage = ({ catFact }: UseCatImage) => {
       }
     }
 
-    fetchData()
+    fetchData();
     
-    return () => controller.abort()
+    return () => controller.abort();
   }, [catFact])
 
-  return { catImage: catImage ? `${CAT_IMAGE}${catImage}` : null }
+  return { catImage: catImage ? `${CAT_IMAGE}${catImage}` : null };
 }

@@ -1,10 +1,10 @@
-import './App.css'
+import './App.css';
 import { useCatFact, useCatImage } from './hooks';
 
 function App() {
-  const { catFact, getFactCat, error } = useCatFact();
+  const { catFact, getCatFact, error } = useCatFact();
   const { catImage } = useCatImage({ catFact });
-  
+
   return (
     <main>
       <h1>Catify</h1>
@@ -13,7 +13,7 @@ function App() {
       {catImage && <img src={catImage} alt="Cat Fact" />}
       {catFact && <h3>{catFact}</h3>}
       
-      <button onClick={getFactCat}>Retrieve more cat facts!</button>
+      <button onClick={getCatFact}>Retrieve more cat facts!</button>
     </main>
   )
 }
