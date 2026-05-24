@@ -9,14 +9,13 @@ export const useCatFact = () => {
 
   const getCatFact = async () => {
     try {
-      setError(null);
-
       const response = await fetch(CAT_RANDOM_FACT);
       if (!response.ok) throw new Error("Failed fetching resource");
       
       const data = await response.json();
       const { fact } = data;
       setCatFact(fact);
+      setError(null);
     } catch (err) {
       setError(err as Error);
     }
