@@ -2,21 +2,18 @@ import './App.css'
 import { useCatFact, useCatImage } from './hooks';
 
 function App() {
-  const { catFact, refreshCatFact } = useCatFact();
+  const { catFact, getFactCat, error } = useCatFact();
   const { catImage } = useCatImage({ catFact });
   
-  const handleClick = () => {
-    refreshCatFact()
-  }
-
   return (
     <main>
       <h1>Catify</h1>
-
-      {catImage && <img src={catImage} /> }
-      {catFact && <h3>{catFact}</h3> }
       
-      <button onClick={handleClick}>Retrieve more cat facts!</button>
+      {error && <p>An error has ocurred</p>}
+      {catImage && <img src={catImage} alt="Cat Fact" />}
+      {catFact && <h3>{catFact}</h3>}
+      
+      <button onClick={getFactCat}>Retrieve more cat facts!</button>
     </main>
   )
 }

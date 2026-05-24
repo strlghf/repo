@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
 
-interface Fact {
+interface UseCatImage {
   catFact: string | null;
 }
 
 const CAT_IMAGE = "https://cataas.com";
 
-export const useCatImage = ({ catFact }: Fact) => {
+export const useCatImage = ({ catFact }: UseCatImage) => {
   const [catImage, setCatImage] = useState<string | null>(null);
 
   useEffect(() => {
-    const controller = new AbortController();
-
     if (!catFact) return;
 
+    const controller = new AbortController();
     const firstThreeWords = catFact.split(" ", 3).join(" ");
 
     async function fetchData() {
@@ -43,5 +42,5 @@ export const useCatImage = ({ catFact }: Fact) => {
     return () => controller.abort()
   }, [catFact])
 
-  return { catImage: `${CAT_IMAGE}${catImage}` }
+  return { catImage: catImage ? `${CAT_IMAGE}${catImage}` : null }
 }
