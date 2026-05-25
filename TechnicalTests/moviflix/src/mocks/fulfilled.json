@@ -1,0 +1,76 @@
+{
+  "Search": [
+    {
+      "Title": "Avatar",
+      "Year": "2009",
+      "imdbID": "tt0499549",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMDEzMmQwZjctZWU2My00MWNlLWE0NjItMDJlYTRlNGJiZjcyXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Avatar: The Way of Water",
+      "Year": "2022",
+      "imdbID": "tt1630029",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNWI0Y2NkOWEtMmM2OC00MjQ3LWI1YzItZGQxYzQ3NzI4NWZmXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Avatar: The Last Airbender",
+      "Year": "2005–2008",
+      "imdbID": "tt0417299",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMDMwMThjYWYtY2Q2OS00OGM2LTlkODQtNDJlZTZmMjAyYmFhXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Avatar: Fire and Ash",
+      "Year": "2025",
+      "imdbID": "tt1757678",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDYxY2I1OGMtN2Y4MS00ZmU1LTgyNDAtODA0MzAyYjI0N2Y2XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg"
+    },
+    {
+      "Title": "Avatar: The Last Airbender",
+      "Year": "2024–",
+      "imdbID": "tt9018736",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNDllZjAzODktMTlmZS00ZDA2LTlmOTAtODgzZjQ0NTZlMjBlXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The King's Avatar",
+      "Year": "2019",
+      "imdbID": "tt10732794",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZTdmZWM1MDgtNGI3Ni00NjM0LTgwNjItYjgxMzc5YTIxNDE5XkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Dasham Avatar",
+      "Year": "2023",
+      "imdbID": "tt27561990",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BYjZjNWE4NDItNTQzZi00YTNjLWEyOTctMjk1MWE5YzgzNmRiXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The King's Avatar",
+      "Year": "2017–",
+      "imdbID": "tt6859260",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZjljOTI1NzItNjhjOS00YWEyLWEwODktNmEyYWFhYzhjZDgwXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Avatar: The Last Airbender - The Legend of Aang",
+      "Year": "2006",
+      "imdbID": "tt0959552",
+      "Type": "game",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNjUwNzA5Nzc4N15BMl5BanBnXkFtZTgwNjM1ODY4MDE@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Avatar: The Game",
+      "Year": "2009",
+      "imdbID": "tt1517155",
+      "Type": "game",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTYxODI2OTI4MF5BMl5BanBnXkFtZTcwNjI1NzMwMw@@._V1_SX300.jpg"
+    }
+  ],
+  "totalResults": "117",
+  "Response": "True"
+}
