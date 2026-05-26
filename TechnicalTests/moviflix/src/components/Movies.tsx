@@ -6,11 +6,11 @@ export function Movies ({ movies }: { movies: MovieProps[] | null }) {
   return (
     <ul className='movies'>
       {movies.map(movie => (
-          <li key={movie.imdbID}>
-            <img src={movie.Poster} alt={movie.Title} />
-            <h3>{movie.Title}</h3>
-            <p>{movie.Year}</p>
-          </li>
+        <li className="movie" key={movie.imdbID}>
+          <img src={movie.Poster} alt={movie.Title} />
+          <h3>{movie.Title}</h3>
+          <p>{movie.Year}</p>
+        </li>
       ))}
     </ul>
   )

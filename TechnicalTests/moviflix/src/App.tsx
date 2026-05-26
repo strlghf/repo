@@ -13,11 +13,11 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='page'>
 
       <header>
         <h1>MoviFlix</h1>
-        <form>
+        <form className='form'>
           <input onChange={handleChange} value={url} placeholder='Matrix, Avatar, Star Wars...' />
           <button type='submit'>Buscar</button>
         </form>

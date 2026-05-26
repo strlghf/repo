@@ -1,7 +1,71 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .movies {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie h3, .movie p {
+  margin: 0;
+}
+
+h3 {
+  display: inline;
+}
+
+.movie img {
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 10px 10px 20px 10px rgb(23, 39, 35);
+  max-height: 100%;
+}
+
+.movie img:hover {
+  cursor: pointer;
 }
 
 .error {
   color: red;
+}
+
+input {
+  border: 1px solid transparent;
+}
+
+h3:hover {
+  color: rgb(90, 187, 161);
+  cursor: pointer;
+}
+
+img:hover {
+  box-shadow: 10px 10px 20px 10px rgb(0, 0, 0);
 }
