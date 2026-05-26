@@ -1,15 +1,15 @@
-import type { MovieProps } from "../types";
+import type { MovieT } from "../types";
 
-export function Movies ({ movies }: { movies: MovieProps[] | null }) {
+export function Movies ({ movies }: { movies: MovieT[] | null }) {
   if (!(movies && movies.length > 0)) return null;
 
   return (
     <ul className='movies'>
       {movies.map(movie => (
-        <li className="movie" key={movie.imdbID}>
-          <img src={movie.Poster} alt={movie.Title} />
-          <h3>{movie.Title}</h3>
-          <p>{movie.Year}</p>
+        <li className="movie" key={movie.id}>
+          <img src={movie.poster} alt={movie.title} />
+          <h3>{movie.title}</h3>
+          <p>{movie.year}</p>
         </li>
       ))}
     </ul>

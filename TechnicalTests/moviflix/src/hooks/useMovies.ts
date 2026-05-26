@@ -1,45 +1,56 @@
-import { useState, useEffect } from "react";
-import type { MovieProps } from "../types";
+import { useState, useRef, useCallback } from "react";
+import type { Movie, MovieT } from "../types";
+
+interface Search {
+  search: string;
+}
 
 const fixedUrl = `https://www.omdbapi.com/?apikey=71b3b753&s=`;
 
-export const useMovies = ({ url }: { url: string }) => {
-  const [movies, setMovies] = useState<MovieProps[] | null>([]);
+export const useMovies = ({ search }: Search) => {
+  const [movies, setMovies] = useState<MovieT[] | null>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [, setError] = useState<Error | null>(null);
+  const previousSearch = useRef(search);
 
-  useEffect(() => {
-    const controller = new AbortController();
+  async function findMovies({ search }: Search) {
+    if (!search || search.trim() === "") return null;
 
-    async function fetchData() {
-      try {
-        setError(null);
-        setLoading(true);
+    try {
+      const response = await fetch(`${fixedUrl}${search}`);
+      if (!response.ok) throw new Error("Failed fetching movie");
 
-        const response = await fetch(`${fixedUrl}${url}`, {
-          signal: controller.signal
-        });
-        if (!response.ok) throw new Error("Failed fetching movie");
+      const data = await response.json();
+      const searchMovies: Movie[] = data.Search;
 
-        const data = await response.json();
-        const searchMovies: MovieProps[] = data.Search;
+      const mappedMovies: MovieT[] = searchMovies.map(movie => ({
+        id: movie.imdbID,
+        title: movie.Title,
+        year: movie.Year,
+        poster: movie.Poster
+      }));
 
-        if (!controller.signal.aborted) {
-          setMovies(searchMovies);
-        }
-      } catch (err) {
-        if ((err as Error).name !== "AbortError") {
-          setError(err as Error);
-        }
-      } finally {
-        setLoading(false);
-      }
+      return mappedMovies;
+    } catch (err) {
+      setError((err as Error));
     }
+  }
 
-    fetchData();
+  const searchMovies = useCallback(async({ search }: Search) => {
+    if (search === previousSearch.current) return;
 
-    return () => controller.abort();
-  }, [url])
+    try {
+      setLoading(true);
+      setError(null)
+      previousSearch.current = search;
+      const newMovies = await findMovies({ search });
+      setMovies(newMovies as MovieT[]);
+    } catch (err) {
+      setError((err as Error));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-  return { movies, loading, error }
+  return { movies, loading, searchMovies }
 }
