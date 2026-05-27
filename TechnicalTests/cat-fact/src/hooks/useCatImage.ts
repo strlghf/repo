@@ -38,7 +38,7 @@ export const useCatImage = ({ catFact }: UseCatImage) => {
     }
 
     fetchData();
-    
+  
     return () => controller.abort();
   }, [catFact])
 
