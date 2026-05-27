@@ -38,7 +38,7 @@ function App() {
         </form>
         {error && <p className='error'>{error}</p>}
       </header>
-      
+
       <main>
         { loading ? <p>Loading...</p> : <Movies movies={movies} /> }
       </main>

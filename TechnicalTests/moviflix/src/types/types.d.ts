@@ -1,15 +1,15 @@
-export interface Movie {
+export interface MovieT {
   Title: string;
-  Year: string;
   imdbID: string;
-  Type?: string;
+  Year: string;
   Poster: string;
+  Type?: string;
 }
 
-export interface MovieT {
+export interface Movie {
   title: string;
-  year: string;
   id: string;
+  year: string;
   poster: string;
   type?: string;
 }

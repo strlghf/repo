@@ -1,6 +1,6 @@
-import type { MovieT } from "../types";
+import type { Movie } from "../types";
 
-export function Movies ({ movies }: { movies: MovieT[] | null }) {
+export function Movies ({ movies }: { movies: Movie[] | null }) {
   if (!(movies && movies.length > 0)) return null;
 
   return (

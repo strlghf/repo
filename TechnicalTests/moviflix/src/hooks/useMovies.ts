@@ -8,7 +8,8 @@ interface Search {
 const fixedUrl = `https://www.omdbapi.com/?apikey=71b3b753&s=`;
 
 export const useMovies = ({ search }: Search) => {
-  const [movies, setMovies] = useState<MovieT[] | null>([]);
+  const [movies, setMovies] = useState<Movie[] | null>([]);
+  console.log(movies);
   const [loading, setLoading] = useState(false);
   const [, setError] = useState<Error | null>(null);
   const previousSearch = useRef(search);
@@ -21,9 +22,9 @@ export const useMovies = ({ search }: Search) => {
       if (!response.ok) throw new Error("Failed fetching movie");
 
       const data = await response.json();
-      const searchMovies: Movie[] = data.Search;
+      const searchMovies: MovieT[] = data.Search;
 
-      const mappedMovies: MovieT[] = searchMovies.map(movie => ({
+      const mappedMovies: Movie[] = searchMovies.map(movie => ({
         id: movie.imdbID,
         title: movie.Title,
         year: movie.Year,
@@ -41,10 +42,10 @@ export const useMovies = ({ search }: Search) => {
 
     try {
       setLoading(true);
-      setError(null)
+      setError(null);
       previousSearch.current = search;
       const newMovies = await findMovies({ search });
-      setMovies(newMovies as MovieT[]);
+      setMovies(newMovies as Movie[]);
     } catch (err) {
       setError((err as Error));
     } finally {
