@@ -8,27 +8,27 @@ interface Search {
 const fixedUrl = `https://www.omdbapi.com/?apikey=71b3b753&s=`;
 
 async function findMovies({ search }: Search) {
-    if (search.trim() === "") return null;
+  if (search.trim() === "") return null;
 
-    try {
-      const response = await fetch(`${fixedUrl}${search}`);
-      if (!response.ok) throw new Error("Failed fetching movie");
+  try {
+    const response = await fetch(`${fixedUrl}${search}`);
+    if (!response.ok) throw new Error("Failed fetching movie");
 
-      const data = await response.json();
-      const searchMovies: MovieT[] = data.Search;
+    const data = await response.json();
+    const searchMovies: MovieT[] = data.Search;
 
-      const mappedMovies: Movie[] = searchMovies.map(movie => ({
-        id: movie.imdbID,
-        title: movie.Title,
-        year: movie.Year,
-        poster: movie.Poster
-      }));
+    const mappedMovies: Movie[] = searchMovies.map(movie => ({
+      id: movie.imdbID,
+      title: movie.Title,
+      year: movie.Year,
+      poster: movie.Poster
+    }));
 
-      return mappedMovies;
-    } catch (err) {
-      console.log(err);
-    }
+    return mappedMovies;
+  } catch (err) {
+    console.log(err);
   }
+}
 
 export const useMovies = ({ search }: Search) => {
   const [movies, setMovies] = useState<Movie[] | null>(null);
