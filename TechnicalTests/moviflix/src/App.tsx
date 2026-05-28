@@ -27,7 +27,7 @@ function App() {
     e.preventDefault();
     searchMovies({ search });
   }
-
+  
   return (
     <div className='page'>
       <header>

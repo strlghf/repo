@@ -7,13 +7,7 @@ interface Search {
 
 const fixedUrl = `https://www.omdbapi.com/?apikey=71b3b753&s=`;
 
-export const useMovies = ({ search }: Search) => {
-  const [movies, setMovies] = useState<Movie[] | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [, setError] = useState<Error | null>(null);
-  const previousSearch = useRef(search);
-
-  async function findMovies({ search }: Search) {
+async function findMovies({ search }: Search) {
     if (search.trim() === "") return null;
 
     try {
@@ -32,9 +26,15 @@ export const useMovies = ({ search }: Search) => {
 
       return mappedMovies;
     } catch (err) {
-      setError((err as Error));
+      console.log(err);
     }
   }
+
+export const useMovies = ({ search }: Search) => {
+  const [movies, setMovies] = useState<Movie[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [, setError] = useState<Error | null>(null);
+  const previousSearch = useRef(search);
 
   const searchMovies = useCallback(async({ search }: Search) => {
     if (search === previousSearch.current) return;
